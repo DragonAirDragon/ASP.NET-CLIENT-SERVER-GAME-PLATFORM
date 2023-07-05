@@ -1,0 +1,31 @@
+﻿@page
+@model WebApplication10.Pages.Presets.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <h4>Preset</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Preset.Healthplayer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Preset.Healthplayer.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Preset.Speedplayer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Preset.Speedplayer.SpeedplayerID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Preset?.PresetID">Изменить</a> |
+    <a asp-page="./Index">Вернуться к списку</a>
+</div>

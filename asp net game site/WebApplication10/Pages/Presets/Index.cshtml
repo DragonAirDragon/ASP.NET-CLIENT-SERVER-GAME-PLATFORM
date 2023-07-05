@@ -1,0 +1,42 @@
+﻿@page
+@model WebApplication10.Pages.Presets.IndexModel
+
+@{
+    ViewData["Title"] = "Настройка пресетов";
+}
+
+<h1>Список заготовок</h1>
+
+<p>
+    <a asp-page="Create">Создать новый</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Preset[0].Healthplayer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preset[0].Speedplayer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Preset) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Healthplayer.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speedplayer.SpeedplayerID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PresetID">Изменить</a> |
+                <a asp-page="./Details" asp-route-id="@item.PresetID">Детали</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PresetID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

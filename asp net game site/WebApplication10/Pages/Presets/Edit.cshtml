@@ -1,0 +1,40 @@
+﻿@page
+@model WebApplication10.Pages.Presets.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Изменение</h1>
+
+<h4>Preset</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Preset.PresetID" />
+            <div class="form-group">
+                <label asp-for="Preset.HealthplayerID" class="control-label"></label>
+                <select asp-for="Preset.HealthplayerID" class="form-control" asp-items="ViewBag.HealthplayerID"></select>
+                <span asp-validation-for="Preset.HealthplayerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preset.SpeedplayerID" class="control-label"></label>
+                <select asp-for="Preset.SpeedplayerID" class="form-control" asp-items="ViewBag.SpeedplayerID"></select>
+                <span asp-validation-for="Preset.SpeedplayerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
